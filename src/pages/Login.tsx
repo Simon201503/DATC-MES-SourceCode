@@ -82,18 +82,9 @@ export default function Login() {
           </button>
         </form>
 
-        <div className="mt-8 space-y-4">
-          <div className="rounded-2xl border border-black/5 bg-white/55 px-4 py-3 text-sm text-gray-600 shadow-sm">
-            <p className="font-semibold text-gray-800 mb-2">测试账号</p>
-            <p>工艺工程师：`admin`</p>
-            <p>操作员：`op`</p>
-            <p>检验员：`in`</p>
-            <p className="mt-2 text-gray-500">密码均为空值</p>
-          </div>
         <div className="mt-8">
           <div className="text-center">
             <p className="text-[10px] text-gray-400 uppercase tracking-widest">Secure Enterprise Login</p>
-          </div>
           </div>
         </div>
         </div>
