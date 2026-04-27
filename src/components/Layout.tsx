@@ -112,7 +112,7 @@ export const Layout: React.FC = () => {
       </aside>
 
       {/* Main Content Area */}
-      <main className="flex-1 flex flex-col h-full overflow-hidden relative pb-16 lg:pb-0">
+      <main className="flex-1 flex flex-col h-full overflow-hidden relative pb-[84px] lg:pb-0">
         {/* Mobile / Tablet Portrait Header */}
         <header className="lg:hidden h-14 flex items-center justify-between px-4 bg-[rgba(255,255,255,0.72)] backdrop-blur-xl border-b border-black/5 z-10 shrink-0">
           <div className="flex items-center">
@@ -132,7 +132,7 @@ export const Layout: React.FC = () => {
         </header>
         
         {/* Page Content */}
-        <div className="flex-1 overflow-auto p-4 lg:p-6">
+        <div className="flex-1 overflow-auto px-3 py-3 pb-24 sm:px-4 sm:py-4 sm:pb-28 lg:p-6">
           <div className="max-w-7xl mx-auto h-full">
             <Outlet />
           </div>
@@ -140,8 +140,8 @@ export const Layout: React.FC = () => {
       </main>
 
       {/* Mobile / Tablet Portrait Bottom Navigation */}
-      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-20 pb-safe px-3 pb-3">
-        <nav className="h-16 bg-[rgba(255,255,255,0.85)] backdrop-blur-xl border border-black/5 shadow-lg rounded-2xl flex items-center justify-around overflow-x-auto hide-scrollbar">
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-20 px-2 pb-safe pb-2 sm:px-3 sm:pb-3">
+        <nav className="h-14 sm:h-16 bg-[rgba(255,255,255,0.88)] backdrop-blur-xl border border-black/5 shadow-lg rounded-2xl flex items-center justify-start gap-1 overflow-x-auto hide-scrollbar px-1.5 sm:px-2">
           {filteredNavItems.map((item) => {
             const Icon = item.icon;
             return (
@@ -151,11 +151,11 @@ export const Layout: React.FC = () => {
               >
                 {({ isActive }) => (
                   <div className={clsx(
-                    "flex flex-col items-center justify-center w-16 min-w-[64px] h-full space-y-1 rounded-2xl transition-colors shrink-0",
+                    "flex flex-col items-center justify-center w-[60px] min-w-[60px] sm:w-16 sm:min-w-[64px] h-full space-y-0.5 rounded-2xl transition-colors shrink-0 px-1",
                     isActive ? "text-[color:var(--accent)] font-semibold" : "text-gray-500 hover:bg-black/5"
                   )}>
                     <Icon className={clsx("w-5 h-5", isActive && "scale-110 transition-transform")} />
-                    <span className="text-[10px] whitespace-nowrap">{item.label}</span>
+                    <span className="text-[9px] sm:text-[10px] leading-tight text-center line-clamp-2">{item.label}</span>
                   </div>
                 )}
               </NavLink>
