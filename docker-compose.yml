@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+  datc-pms-web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: datc-pms-web
+    restart: always
+    ports:
+      - "8080:80"
