@@ -32,7 +32,7 @@ export default function Login() {
         <div className="relative p-10 md:p-14">
           <div className="text-center mb-10">
             <div className="mx-auto flex items-center justify-center w-full">
-              <img src="/datc-logo.svg" alt="DATC Logo" className="h-20 md:h-24 w-auto object-contain mx-auto" />
+              <img src={`${import.meta.env.BASE_URL}datc-logo.svg`} alt="DATC Logo" className="h-20 md:h-24 w-auto object-contain mx-auto" />
             </div>
             <h1 className="mt-4 text-2xl md:text-3xl font-extrabold text-gray-900 tracking-tight">
               DATC-PMS

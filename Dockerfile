@@ -11,7 +11,9 @@ RUN npm run build
 FROM nginx:1.27-alpine
 
 COPY nginx.conf /etc/nginx/conf.d/default.conf
-COPY --from=builder /app/dist /usr/share/nginx/html
+COPY root-index.html /usr/share/nginx/html/index.html
+RUN mkdir -p /usr/share/nginx/html/pms
+COPY --from=builder /app/dist/ /usr/share/nginx/html/pms/
 
 EXPOSE 80
 

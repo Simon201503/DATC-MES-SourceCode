@@ -1,10 +1,12 @@
-# 宝塔 Linux 面板 Docker 部署说明
+# 宝塔 Linux 面板 Docker 部署说明（/pms 子路径版）
 
 ## 适用场景
 
 - 当前项目为 Vite 前端单页应用。
 - 目标环境为宝塔 Linux 面板。
 - 部署方式为 Docker + Docker Compose + Nginx 容器。
+- 正式访问路径为 `https://www.datc-pe.cn/pms/`
+- 根路径 `https://www.datc-pe.cn/` 显示占位页
 
 ## 项目中已提供的文件
 
@@ -12,6 +14,7 @@
 - `nginx.conf`
 - `docker-compose.yml`
 - `.dockerignore`
+- `root-index.html`
 
 ## 服务器准备
 
@@ -67,7 +70,7 @@ docker logs datc-pms-web
 可以先用下面地址测试：
 
 ```text
-http://服务器IP:8080
+http://服务器IP:8080/pms/
 ```
 
 ## 宝塔中配置网站反向代理
@@ -93,6 +96,20 @@ http://127.0.0.1:8080
 
 保存后即可通过域名访问容器中的前端服务。
 
+## 正式访问地址
+
+- 根路径占位页：
+
+```text
+https://www.datc-pe.cn/
+```
+
+- 系统正式入口：
+
+```text
+https://www.datc-pe.cn/pms/
+```
+
 ## HTTPS 配置
 
 ### 1. 域名解析
@@ -113,12 +130,16 @@ http://127.0.0.1:8080
 当前 `nginx.conf` 已包含：
 
 ```nginx
-location / {
-    try_files $uri $uri/ /index.html;
+location = /pms {
+    return 301 /pms/;
+}
+
+location /pms/ {
+    try_files $uri $uri/ /pms/index.html;
 }
 ```
 
-这可以解决前端单页应用在刷新 `/process/list`、`/profile` 等子路由时返回 404 的问题。
+这可以解决前端单页应用在刷新 `/pms/process/list`、`/pms/profile` 等子路由时返回 404 的问题。
 
 ## 后续更新流程
 
@@ -158,4 +179,12 @@ docker logs datc-pms-web
 
 ### 刷新页面 404
 
-确认 `nginx.conf` 中存在 SPA 路由回退配置，且已重新构建容器。
+确认 `nginx.conf` 中存在 `/pms/` 的 SPA 路由回退配置，且已重新构建容器。
+
+### 根域名打开后不是系统
+
+这是预期行为。根路径现在显示占位页，正式系统入口是：
+
+```text
+https://www.datc-pe.cn/pms/
+```

@@ -24,7 +24,7 @@ function App() {
   const { currentUser } = useStore();
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/pms">
       <Routes>
         <Route path="/login" element={!currentUser ? <Login /> : <Navigate to="/" replace />} />
         
