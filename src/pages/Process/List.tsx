@@ -2,7 +2,6 @@ import React, { useState, useRef } from 'react';
 import { useStore } from '../../store';
 import { useNavigate } from 'react-router-dom';
 import { FileEdit, Plus, Search, Trash2, Edit2, Play, GitMerge, Download, Upload } from 'lucide-react';
-import * as XLSX from 'xlsx';
 import { ProcessDocument } from '../../types';
 
 export default function ProcessList() {
@@ -23,7 +22,7 @@ export default function ProcessList() {
     }
   };
 
-  const handleExport = (process: ProcessDocument, e: React.MouseEvent) => {
+  const handleExport = async (process: ProcessDocument, e: React.MouseEvent) => {
     e.stopPropagation();
     
     // Prepare data for export
@@ -40,6 +39,7 @@ export default function ProcessList() {
       '耗材': step.consumables.map(id => libraryItems.find(i => i.id === id)?.name).filter(Boolean).join(', ')
     }));
 
+    const XLSX = await import('xlsx');
     const ws = XLSX.utils.json_to_sheet(stepsData);
     const wb = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, "工序列表");
@@ -53,9 +53,10 @@ export default function ProcessList() {
     if (!file) return;
 
     const reader = new FileReader();
-    reader.onload = (evt) => {
+    reader.onload = async (evt) => {
       try {
         const bstr = evt.target?.result;
+        const XLSX = await import('xlsx');
         const wb = XLSX.read(bstr, { type: 'binary' });
         const wsname = wb.SheetNames[0];
         const ws = wb.Sheets[wsname];

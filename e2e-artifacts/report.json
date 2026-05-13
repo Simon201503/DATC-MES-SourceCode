@@ -2,14 +2,14 @@
   "base_url": "http://localhost:4173/pms/",
   "navigation": {
     "status": 200,
-    "domcontentloaded_to_networkidle_ms": 676.37,
+    "domcontentloaded_to_networkidle_ms": 633.39,
     "nav_entry": {
       "type": "navigate",
       "startTime": 0,
-      "domContentLoaded": 125.39999999850988,
-      "loadEventEnd": 125.39999999850988,
-      "transferSize": 6867,
-      "encodedBodySize": 6567,
+      "domContentLoaded": 65.70000000111759,
+      "loadEventEnd": 65.70000000111759,
+      "transferSize": 6869,
+      "encodedBodySize": 6569,
       "decodedBodySize": 26122
     }
   },

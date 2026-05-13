@@ -2,7 +2,6 @@ import React, { useState, useRef } from 'react';
 import { useStore } from '../../store';
 import { useNavigate } from 'react-router-dom';
 import { Play, ClipboardCheck, Search, Eye, Download, Upload } from 'lucide-react';
-import * as XLSX from 'xlsx';
 import { WorkOrder } from '../../types';
 
 export default function List() {
@@ -17,7 +16,7 @@ export default function List() {
   const [quantity, setQuantity] = useState(1);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const handleExport = (record: WorkOrder, e: React.MouseEvent) => {
+  const handleExport = async (record: WorkOrder, e: React.MouseEvent) => {
     e.stopPropagation();
     
     // Prepare data for export
@@ -43,6 +42,7 @@ export default function List() {
       };
     });
 
+    const XLSX = await import('xlsx');
     const ws = XLSX.utils.json_to_sheet(exportData);
     const wb = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, "执行记录");
@@ -55,9 +55,10 @@ export default function List() {
     if (!file) return;
 
     const reader = new FileReader();
-    reader.onload = (evt) => {
+    reader.onload = async (evt) => {
       try {
         const bstr = evt.target?.result;
+        const XLSX = await import('xlsx');
         const wb = XLSX.read(bstr, { type: 'binary' });
         const wsname = wb.SheetNames[0];
         const ws = wb.Sheets[wsname];
