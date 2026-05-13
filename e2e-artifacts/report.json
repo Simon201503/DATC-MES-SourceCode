@@ -1,0 +1,29 @@
+{
+  "base_url": "http://localhost:4173/pms/",
+  "navigation": {
+    "status": 200,
+    "domcontentloaded_to_networkidle_ms": 676.37,
+    "nav_entry": {
+      "type": "navigate",
+      "startTime": 0,
+      "domContentLoaded": 125.39999999850988,
+      "loadEventEnd": 125.39999999850988,
+      "transferSize": 6867,
+      "encodedBodySize": 6567,
+      "decodedBodySize": 26122
+    }
+  },
+  "console": {
+    "errors": [],
+    "warnings": []
+  },
+  "network": {
+    "failed_requests": []
+  },
+  "screenshots": {
+    "login": "/workspace/e2e-artifacts/01-login.png",
+    "dashboard": "/workspace/e2e-artifacts/02-dashboard.png",
+    "process_list": "/workspace/e2e-artifacts/03-process-list.png",
+    "tracking_list": "/workspace/e2e-artifacts/04-tracking-list.png"
+  }
+}
