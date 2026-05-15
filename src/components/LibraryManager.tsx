@@ -6,9 +6,10 @@ import { Plus, Edit2, Trash2, Search } from 'lucide-react';
 interface LibraryManagerProps {
   type: LibraryItemType;
   title: string;
+  description?: string;
 }
 
-export const LibraryManager: React.FC<LibraryManagerProps> = ({ type, title }) => {
+export const LibraryManager: React.FC<LibraryManagerProps> = ({ type, title, description = '维护生产所需的标准基础库信息' }) => {
   const { libraryItems, addLibraryItem, updateLibraryItem, removeLibraryItem } = useStore();
   const items = libraryItems.filter(item => item.type === type);
 
@@ -45,10 +46,13 @@ export const LibraryManager: React.FC<LibraryManagerProps> = ({ type, title }) =
   };
 
   return (
-    <div className="flex flex-col h-full bg-white rounded-xl shadow-sm border border-gray-200">
+    <div className="flex flex-col h-full w-full">
       {/* Header */}
-      <div className="p-4 md:p-6 border-b border-gray-200 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-        <h2 className="text-xl font-bold text-gray-800">{title}</h2>
+      <div className="mb-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <div>
+          <h2 className="text-2xl font-bold text-gray-900">{title}</h2>
+          <p className="text-sm text-gray-500 mt-1">{description}</p>
+        </div>
         <div className="flex w-full sm:w-auto gap-3">
           <div className="relative flex-1 sm:w-64">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
@@ -57,12 +61,12 @@ export const LibraryManager: React.FC<LibraryManagerProps> = ({ type, title }) =
               placeholder="搜索名称或参数..." 
               value={searchTerm}
               onChange={e => setSearchTerm(e.target.value)}
-              className="w-full pl-9 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
+              className="w-full pl-9 pr-4 py-2.5 border border-black/10 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[rgba(10,132,255,0.22)] text-sm bg-white/70 backdrop-blur shadow-sm"
             />
           </div>
           <button 
             onClick={() => { setCurrentItem({}); setIsEditing(true); }}
-            className="flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium whitespace-nowrap"
+            className="flex items-center px-4 py-2.5 bg-[color:var(--accent)] text-white rounded-2xl hover:opacity-95 transition-opacity text-sm font-semibold whitespace-nowrap shadow-sm"
           >
             <Plus className="w-4 h-4 mr-2" />
             新增
@@ -71,7 +75,7 @@ export const LibraryManager: React.FC<LibraryManagerProps> = ({ type, title }) =
       </div>
 
       {/* Content */}
-      <div className="flex-1 overflow-auto p-4 md:p-6">
+      <div className="flex-1 overflow-auto pb-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4">
           {filteredItems.map(item => (
             <div key={item.id} className="border border-gray-200 rounded-xl p-4 hover:shadow-md transition-shadow bg-gray-50">

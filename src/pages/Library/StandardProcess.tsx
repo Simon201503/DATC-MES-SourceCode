@@ -86,9 +86,12 @@ export default function StandardProcess() {
   };
 
   return (
-    <div className="flex flex-col h-full bg-white rounded-xl shadow-sm border border-gray-200">
-      <div className="p-4 md:p-6 border-b border-gray-200 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-        <h2 className="text-xl font-bold text-gray-800">标准工序库</h2>
+    <div className="flex flex-col h-full w-full">
+      <div className="mb-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <div>
+          <h2 className="text-2xl font-bold text-gray-900">标准工序库</h2>
+          <p className="text-sm text-gray-500 mt-1">维护可复用的标准生产工序</p>
+        </div>
         <div className="flex w-full sm:w-auto gap-3">
           <div className="relative flex-1 sm:w-64">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
@@ -97,19 +100,20 @@ export default function StandardProcess() {
               placeholder="搜索名称或内容..." 
               value={searchTerm}
               onChange={e => setSearchTerm(e.target.value)}
-              className="w-full pl-9 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+              className="w-full pl-9 pr-4 py-2.5 border border-black/10 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[rgba(10,132,255,0.22)] text-sm bg-white/70 backdrop-blur shadow-sm"
             />
           </div>
           <button 
             onClick={handleCreate}
-            className="flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium whitespace-nowrap"
+            className="flex items-center px-4 py-2.5 bg-[color:var(--accent)] text-white rounded-2xl hover:opacity-95 transition-opacity text-sm font-semibold whitespace-nowrap shadow-sm"
           >
-            <Plus className="w-4 h-4 mr-2" />新增
+            <Plus className="w-4 h-4 mr-2" />
+            新增工序
           </button>
         </div>
       </div>
 
-      <div className="flex-1 overflow-auto p-4 md:p-6">
+      <div className="flex-1 overflow-auto pb-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-4">
           {filteredProcesses.map(step => (
             <div key={step.id} className="border border-gray-200 rounded-xl p-4 hover:shadow-md transition-shadow bg-gray-50 flex flex-col">

@@ -132,9 +132,12 @@ export default function List() {
   );
 
   return (
-    <div className="flex flex-col h-full bg-[var(--card-bg)] backdrop-blur-xl rounded-3xl shadow-[var(--shadow-soft)] border border-black/5 overflow-hidden">
-      <div className="p-4 md:p-6 border-b border-black/5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-white/40">
-        <h2 className="text-[15px] font-semibold text-gray-900">工艺执行跟踪</h2>
+    <div className="flex flex-col h-full w-full">
+      <div className="mb-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <div>
+          <h2 className="text-2xl font-bold text-gray-900">工艺执行跟踪</h2>
+          <p className="text-sm text-gray-500 mt-1">监控现场生产进度与执行数据记录</p>
+        </div>
         <div className="flex w-full sm:w-auto gap-3">
           <div className="relative flex-1 sm:w-64">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
@@ -143,7 +146,7 @@ export default function List() {
               placeholder="搜索任务或操作人..." 
               value={searchTerm}
               onChange={e => setSearchTerm(e.target.value)}
-              className="w-full pl-9 pr-4 py-2.5 border border-black/10 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[rgba(10,132,255,0.22)] text-sm bg-white/70 backdrop-blur"
+              className="w-full pl-9 pr-4 py-2.5 border border-black/10 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[rgba(10,132,255,0.22)] text-sm bg-white/70 backdrop-blur shadow-sm"
             />
           </div>
           <input 
@@ -170,7 +173,7 @@ export default function List() {
         </div>
       </div>
 
-      <div className="flex-1 overflow-auto p-4 md:p-6">
+      <div className="flex-1 overflow-auto pb-6">
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4">
           {filteredRecords.map(record => (
             <div key={record.id} className="border border-black/5 rounded-3xl p-5 hover:shadow-[var(--shadow-float)] transition-shadow bg-white/55 backdrop-blur flex flex-col relative overflow-hidden">

@@ -78,9 +78,12 @@ export default function UserManagement() {
   };
 
   return (
-    <div className="flex flex-col h-full bg-[var(--card-bg)] backdrop-blur-xl rounded-3xl shadow-[var(--shadow-soft)] border border-black/5 overflow-hidden">
-      <div className="p-4 md:p-6 border-b border-black/5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-white/40">
-        <h2 className="text-[15px] font-semibold text-gray-900">用户与权限管理</h2>
+    <div className="flex flex-col h-full w-full">
+      <div className="mb-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <div>
+          <h2 className="text-2xl font-bold text-gray-900">用户与权限管理</h2>
+          <p className="text-sm text-gray-500 mt-1">管理系统登录用户与角色分配</p>
+        </div>
         <button 
           onClick={() => handleOpenModal()}
           className="flex items-center px-4 py-2.5 bg-[color:var(--accent)] text-white rounded-2xl hover:opacity-95 transition-opacity text-sm font-semibold shadow-sm"
@@ -90,7 +93,7 @@ export default function UserManagement() {
         </button>
       </div>
 
-      <div className="flex-1 overflow-auto p-4 md:p-6">
+      <div className="flex-1 overflow-auto pb-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4">
           {users.map(user => (
             <div key={user.id} className="border border-black/5 rounded-3xl p-5 hover:shadow-[var(--shadow-float)] transition-shadow bg-white/55 backdrop-blur flex flex-col">
