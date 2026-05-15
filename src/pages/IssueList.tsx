@@ -109,7 +109,7 @@ export default function IssueList() {
       </div>
 
       <div className="flex-1 overflow-auto p-4 md:p-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4">
           {filteredIssues.map(issue => {
             const statusConfig = getStatusConfig(issue.status);
             const wo = workOrders.find(w => w.id === issue.workOrderId);

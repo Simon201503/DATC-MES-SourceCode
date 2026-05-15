@@ -133,7 +133,7 @@ export const Layout: React.FC = () => {
         
         {/* Page Content */}
         <div className="flex-1 overflow-auto px-3 py-3 pb-24 sm:px-4 sm:py-4 sm:pb-28 lg:p-6">
-          <div className="max-w-7xl mx-auto h-full">
+          <div className="w-full h-full">
             <Outlet />
           </div>
         </div>

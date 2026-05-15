@@ -171,7 +171,7 @@ export default function List() {
       </div>
 
       <div className="flex-1 overflow-auto p-4 md:p-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4">
           {filteredRecords.map(record => (
             <div key={record.id} className="border border-black/5 rounded-3xl p-5 hover:shadow-[var(--shadow-float)] transition-shadow bg-white/55 backdrop-blur flex flex-col relative overflow-hidden">
               {record.status === 'completed' && <div className="absolute top-3 right-3 bg-[rgba(52,199,89,0.12)] text-emerald-900 text-[10px] font-semibold px-2.5 py-1 rounded-full border border-[rgba(52,199,89,0.22)]">已完成</div>}

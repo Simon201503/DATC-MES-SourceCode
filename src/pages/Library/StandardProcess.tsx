@@ -110,7 +110,7 @@ export default function StandardProcess() {
       </div>
 
       <div className="flex-1 overflow-auto p-4 md:p-6">
-        <div className="grid grid-cols-1 xl:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-4">
           {filteredProcesses.map(step => (
             <div key={step.id} className="border border-gray-200 rounded-xl p-4 hover:shadow-md transition-shadow bg-gray-50 flex flex-col">
               <div className="flex justify-between items-start mb-3 border-b border-gray-200 pb-3">

@@ -69,8 +69,8 @@ export default function Dashboard() {
         ))}
       </div>
 
-      <div className="grid grid-cols-1 gap-4 md:gap-6 lg:grid-cols-3">
-        <div className="lg:col-span-2 bg-[var(--card-bg)] backdrop-blur-xl rounded-3xl border border-black/5 shadow-[var(--shadow-soft)] flex flex-col overflow-hidden">
+      <div className="grid grid-cols-1 gap-4 md:gap-6 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="lg:col-span-2 xl:col-span-3 bg-[var(--card-bg)] backdrop-blur-xl rounded-3xl border border-black/5 shadow-[var(--shadow-soft)] flex flex-col overflow-hidden">
           <div className="p-4 sm:p-5 border-b border-black/5 flex items-center justify-between gap-3 bg-white/40">
             <h3 className="font-bold text-gray-800 flex items-center">
               <ClipboardList className="w-5 h-5 mr-2 text-[color:var(--accent)]" /> 

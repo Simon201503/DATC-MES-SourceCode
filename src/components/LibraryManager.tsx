@@ -72,7 +72,7 @@ export const LibraryManager: React.FC<LibraryManagerProps> = ({ type, title }) =
 
       {/* Content */}
       <div className="flex-1 overflow-auto p-4 md:p-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4">
           {filteredItems.map(item => (
             <div key={item.id} className="border border-gray-200 rounded-xl p-4 hover:shadow-md transition-shadow bg-gray-50">
               <div className="flex justify-between items-start mb-2">
